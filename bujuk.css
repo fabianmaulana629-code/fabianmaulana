@@ -1,0 +1,149 @@
+/* --- Pengaturan Dasar & Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* --- Kartu Utama --- */
+.card {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    padding: 45px 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+}
+
+/* --- Animasi Masuk Halaman (Fade In) --- */
+.page-section {
+    animation: slideUp 0.4s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Animasi Emoji --- */
+.emoji-container {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.floating-emoji {
+    display: inline-block;
+    animation: bounce 1.5s infinite alternate;
+}
+
+.floating-emoji.heart {
+    animation-delay: 0.5s;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+/* --- Tipografi & Teks --- */
+h1, h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #d6336c;
+    font-size: 2.7rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.message {
+    color: #4a5568;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* --- Grup Tombol & Navigasi Interaktif --- */
+.button-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    min-height: 50px;
+    flex-wrap: wrap;
+}
+
+/* Desain & Efek Klik Tombol */
+button {
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    user-select: none;
+}
+
+/* Efek Tekan Tombol saat Diklik */
+button:active {
+    transform: scale(0.95) !important;
+}
+
+.btn-primary, #btn-yes {
+    background-color: #ff477e;
+    color: white;
+}
+
+.btn-primary:hover, #btn-yes:hover {
+    background-color: #d6336c;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(214, 51, 108, 0.35);
+}
+
+.btn-secondary {
+    background-color: #edf2f7;
+    color: #4a5568;
+}
+
+.btn-secondary:hover {
+    background-color: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+#btn-no {
+    background-color: #cbd5e0;
+    color: #2d3748;
+    z-index: 999;
+}
+
+/* Class Penyembunyi Halaman */
+.hidden {
+    display: none !important;
+}

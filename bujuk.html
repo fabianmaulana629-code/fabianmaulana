@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Febi, Sayang Tercinta ❤️</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Link CSS Eksternal -->
+    <link rel="stylesheet" href="bujuk.css">
+</head>
+<body>
+
+    <div class="card">
+        <!-- ===== HALAMAN 1: Pembuka ===== -->
+        <div id="page1" class="page-section">
+            <div class="emoji-container">
+                <span class="floating-emoji">🥺</span>
+                <span class="floating-emoji heart">💭</span>
+            </div>
+            <h1>Halo, Febi Sayang Tercinta...</h1>
+            <p class="message">
+                Aku tahu akhir-akhir ini situasi di antara kita lagi kurang enak, dan itu semua karena salahku. 
+                Sebelum kamu makin ngambek, ada beberapa hal yang mau aku sampaiin dari lubuk hati yang paling dalam...
+            </p>
+            <button class="btn-primary" onclick="nextPage(2)">Baca Suratnya ➡️</button>
+        </div>
+
+        <!-- ===== HALAMAN 2: Kata-kata Membujuk ===== -->
+        <div id="page2" class="page-section hidden">
+            <div class="emoji-container">
+                <span class="floating-emoji">🌸</span>
+                <span class="floating-emoji heart">💖</span>
+            </div>
+            <h1>Buat Febi Tercinta...</h1>
+            <p class="message">
+                Maafin aku ya kalau perbuatanku atau kata-kataku bikin kamu kecewa dan cemberut. 
+                Jujur, seharipun kamu ngambek, rasanya hariku sepi banget. Senyuman kamu itu bagian terfavorit di hidupku, 
+                jadi rasanya sedih banget kalau tau akulah penyebab senyum itu hilang sementara.
+            </p>
+            <div class="button-nav">
+                <button class="btn-secondary" onclick="nextPage(1)">⬅️ Kembali</button>
+                <button class="btn-primary" onclick="nextPage(3)">Lanjut ➡️</button>
+            </div>
+        </div>
+
+        <!-- ===== HALAMAN 3: Keputusan & Bujukan Akhir ===== -->
+        <div id="page3" class="page-section hidden">
+            <div class="emoji-container">
+                <span class="floating-emoji">🌹</span>
+                <span class="floating-emoji heart">✨</span>
+            </div>
+            <h1>Maafin Aku Ya, Sayang? 🤍</h1>
+            <p class="message">
+                Aku janji bakal lebih ngertiin kamu dan gak bikin kesalahan yang sama lagi. 
+                Sekarang, Febi sayang tercinta mau kan maafin aku dan senyum lagi?
+            </p>
+            
+            <div class="button-group">
+                <button id="btn-yes" onclick="accepted()">Udah dimaafin kok! 🥰</button>
+                <button id="btn-no" onmouseover="moveButton()" onclick="moveButton()" window-touchstart="moveButton()">Masih ngambek! 😤</button>
+            </div>
+            <div style="margin-top: 20px;">
+                <button class="btn-secondary" onclick="nextPage(2)">⬅️ Baca Ulang Surat</button>
+            </div>
+        </div>
+
+        <!-- ===== HALAMAN SUKSES (Jika Dimaafkan) ===== -->
+        <div id="success-message" class="page-section hidden">
+            <div class="emoji-container">
+                <span class="floating-emoji">🎉</span>
+                <span class="floating-emoji heart">❤️</span>
+            </div>
+            <h2>Makasih Banyak, Febi Sayang Tercinta! 🥰</h2>
+            <p class="message">
+                Makasih udah mau mengerti dan maafin aku. Janji deh bakal bikin kamu bahagia terus tiap hari! 
+                I love you so much, Febi! 💖✨
+            </p>
+        </div>
+    </div>
+
+    <!-- Script Logika Perpindahan Halaman & Tombol Lari -->
+    <script>
+        // Fungsi untuk pindah halaman
+        function nextPage(pageNum) {
+            document.querySelectorAll('.page-section').forEach(page => {
+                page.classList.add('hidden');
+            });
+            const targetPage = document.getElementById(`page${pageNum}`);
+            targetPage.classList.remove('hidden');
+        }
+
+        // Fungsi jika tombol "Udah dimaafin kok!" diklik
+        function accepted() {
+            document.querySelectorAll('.page-section').forEach(page => {
+                page.classList.add('hidden');
+            });
+            document.getElementById('success-message').classList.remove('hidden');
+        }
+
+        // Fungsi tombol "Masih ngambek!" lari saat disentuh / didekati
+        function moveButton() {
+            const btnNo = document.getElementById('btn-no');
+            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - 60);
+            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - 60);
+            
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = `${Math.max(20, x)}px`;
+            btnNo.style.top = `${Math.max(20, y)}px`;
+        }
+    </script>
+
+</body>
+</html>
